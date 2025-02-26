@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Untuk Kamu 💖</title>
+
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(to right, #ff758c, #ff7eb3);
+        text-align: center;
+        color: white;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+        padding: 10px;
+      }
+
+      /* Efek hati melayang */
+      .heart {
+        position: absolute;
+        color: red;
+        font-size: 20px;
+        animation: float 4s linear infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh);
+          opacity: 0;
+        }
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        max-width: 90%;
+        min-width: 280px;
+        transition: all 0.3s ease;
+      }
+
+      h1 {
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+      }
+
+      button {
+        background: #ff5e78;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1.2em;
+        color: white;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      button:hover {
+        background: #ff3b5c;
+        transform: scale(1.1);
+      }
+
+      /* Media Query untuk HP */
+      @media screen and (max-width: 600px) {
+        h1 {
+          font-size: 1.5em;
+        }
+
+        p {
+          font-size: 1em;
+        }
+
+        .container {
+          padding: 15px;
+          width: 95%;
+        }
+
+        button {
+          font-size: 1em;
+          padding: 12px 20px;
+          max-width: 250px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hai Sayang 💕</h1>
+      <p>Aku punya sesuatu untukmu... Klik tombol di bawah ini ya! 😘</p>
+
+      <button id="nextPageBtn">Buka Sekarang 💝</button>
+    </div>
+
+    <script>
+      document.getElementById('nextPageBtn').addEventListener('click', function () {
+        window.location.href = 'romant.html'; // Halaman tujuan
+      });
+
+      // Efek hati melayang
+      function createHearts() {
+        setInterval(() => {
+          let heart = document.createElement("div");
+          heart.innerHTML = "❤️";
+          heart.className = "heart";
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+          heart.style.fontSize = Math.random() * 10 + 15 + "px";
+          document.body.appendChild(heart);
+          setTimeout(() => heart.remove(), 4000);
+        }, 500);
+      }
+
+      createHearts();
+    </script>
+  </body>
+</html>
