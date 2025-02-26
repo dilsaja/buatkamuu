@@ -1,225 +1,236 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maafkan Aku</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url(assets/images/cinta.jpg);
-            background-size: cover;
-            background-position: center;
-            text-align: center;
-            color: white;
-            padding: 20px;
-            overflow-x: hidden;
-            position: relative;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-image: url(assets/images/cinta.jpg);
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        color: white;
+        padding: 20px;
+        overflow-x: hidden;
+        position: relative;
+      }
 
-        /* Efek hati melayang */
-        .heart {
-            position: absolute;
-            color: red;
-            font-size: 20px;
-            animation: float 4s linear infinite;
-        }
+      /* Efek hati melayang */
+      .heart {
+        position: absolute;
+        color: red;
+        font-size: 20px;
+        animation: float 4s linear infinite;
+      }
 
-        @keyframes float {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(-100vh); opacity: 0; }
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+          opacity: 1;
         }
+        100% {
+          transform: translateY(-100vh);
+          opacity: 0;
+        }
+      }
 
-        .container {
-            max-width: 80%;
-            min-width: 300px;
-            margin: auto;
-            padding: 20px;
-            background: rgba(160, 35, 35, 0.4);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            display: inline-block;
-            text-align: center;
-            transition: min-height 0.3s ease-in-out;
-        }
+      .container {
+        max-width: 80%;
+        min-width: 300px;
+        margin: auto;
+        padding: 20px;
+        background: rgba(160, 35, 35, 0.4);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        display: inline-block;
+        text-align: center;
+        transition: min-height 0.3s ease-in-out;
+      }
 
-        h1 {
-            font-size: 2em;
-        }
+      h1 {
+        font-size: 2em;
+      }
 
-        .typing-container {
-            font-size: 1.2em;
-            border-right: 2px solid white;
-            white-space: normal;
-            overflow-wrap: break-word;
-            word-wrap: break-word;
-            text-align: center;
-            display: inline-block;
-            max-width: 100%;
-            min-height: 40px;
-        }
+      .typing-container {
+        font-size: 1.2em;
+        border-right: 2px solid white;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        text-align: center;
+        display: inline-block;
+        max-width: 100%;
+        min-height: 40px;
+      }
 
-        /* Animasi tombol */
-        button {
-            background: #ff5e78;
-            border: none;
-            padding: 12px 20px;
-            font-size: 1.2em;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            animation: pulse 1.5s infinite;
-        }
+      /* Animasi tombol */
+      button {
+        background: #ff5e78;
+        border: none;
+        padding: 12px 20px;
+        font-size: 1.2em;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+        animation: pulse 1.5s infinite;
+      }
 
-        button:hover {
-            background: #ff3b5c;
-            transform: scale(1.1);
-        }
+      button:hover {
+        background: #ff3b5c;
+        transform: scale(1.1);
+      }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
         }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
 
-        .gallery {
-            margin-top: 20px;
-        }
+      .gallery {
+        margin-top: 20px;
+      }
 
-        .gallery h2 {
-            font-size: 1.5em;
-        }
+      .gallery h2 {
+        font-size: 1.5em;
+      }
 
-        .gallery .images {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
-        }
+      .gallery .images {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
 
-        .gallery .images img {
-            width: 180px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
+      .gallery .images img {
+        width: 180px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s;
+        cursor: pointer;
+      }
 
-        .gallery .images img:hover {
-            transform: scale(1.1);
-        }
+      .gallery .images img:hover {
+        transform: scale(1.1);
+      }
 
-        /* Modal untuk gambar */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-        }
+      /* Modal untuk gambar */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+      }
 
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 80%;
-            max-height: 80%;
-        }
+      .modal-content {
+        margin: auto;
+        display: block;
+        max-width: 80%;
+        max-height: 80%;
+      }
 
-        .hidden {
-            display: none;
-        }
+      .hidden {
+        display: none;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <audio id="music" autoplay loop>
-        <source src="assets/music.mp3" type="audio/mpeg">
-        Maaf, browser kamu tidak mendukung audio.
+      <source src="assets/music.mp3" type="audio/mpeg" />
+      Maaf, browser kamu tidak mendukung audio.
     </audio>
 
     <div class="container">
-        <h1>Message 💖</h1>
-        <p class="typing-container" id="typingText"></p>
+      <h1>Message 💖</h1>
+      <p class="typing-container" id="typingText"></p>
 
-        <div class="gallery">
-            <h2>Kenangan Kita 💖</h2>
-            <div class="images">
-                <img src="assets/images/c2.jpg" alt="Kenangan 2" onclick="openModal(this.src)">
-                <img src="assets/images/c1.jpg" alt="Kenangan 1" onclick="openModal(this.src)">
-                <img src="assets/images/c3.jpg" alt="Kenangan 3" onclick="openModal(this.src)">
-            </div>
+      <div class="gallery">
+        <h2>Kenangan Kita 💖</h2>
+        <div class="images">
+          <img src="assets/images/c2.jpg" alt="Kenangan 2" onclick="openModal(this.src)" />
+          <img src="assets/images/c1.jpg" alt="Kenangan 1" onclick="openModal(this.src)" />
+          <img src="assets/images/c3.jpg" alt="Kenangan 3" onclick="openModal(this.src)" />
         </div>
+      </div>
 
-        <button id="forgiveBtn">di bukaa yaa sayaangg 💕</button>
-        <p class="thankyou hidden">Terima kasih sudah ada untukku ❤️</p>
+      <button id="forgiveBtn">di bukaa yaa sayaangg 💕</button>
+      <p class="thankyou hidden">Terima kasih sudah ada untukku ❤️</p>
     </div>
 
     <!-- Modal Popup -->
     <div id="modal" class="modal" onclick="closeModal()">
-        <img class="modal-content" id="modalImage">
+      <img class="modal-content" id="modalImage" />
     </div>
 
     <script>
-        document.getElementById("forgiveBtn").addEventListener("click", function() {
-            window.location.href = "video.html";
-        });
+      document.getElementById('forgiveBtn').addEventListener('click', function () {
+        window.location.href = 'video.html';
+      });
 
-        // Efek mesin ketik dengan suara
-        const text = "Aku sadar telah membuat kesalahan, dan aku sangat menyesalinya. luka itu pasti akan selalu terbesit di hati kamu,Tapi yang terpenting kamu sekarang harus tetap tersenyum yaa. Aku akan selalu mencintaimu.";
-        let index = 0;
-        const speed = 50;
-        const typingSound = new Audio("assets/typing.mp3");
+      // Efek mesin ketik dengan suara
+      const text = 'Aku sadar telah membuat kesalahan, dan aku sangat menyesalinya. luka itu pasti akan selalu terbesit di hati kamu,Tapi yang terpenting kamu sekarang harus tetap tersenyum yaa. Aku akan selalu mencintaimu.';
+      let index = 0;
+      const speed = 50;
+      const typingSound = new Audio('assets/typing.mp3');
 
-        function typeWriter() {
-            let typingElement = document.getElementById("typingText");
-            typingElement.innerHTML = "";
-            
-            function type() {
-                if (index < text.length) {
-                    typingElement.innerHTML += text.charAt(index);
-                    typingSound.play(); // Mainkan suara
-                    index++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
+      function typeWriter() {
+        let typingElement = document.getElementById('typingText');
+        typingElement.innerHTML = '';
+
+        function type() {
+          if (index < text.length) {
+            typingElement.innerHTML += text.charAt(index);
+            typingSound.play(); // Mainkan suara
+            index++;
+            setTimeout(type, speed);
+          }
         }
+        type();
+      }
 
-        window.onload = function() {
-            typeWriter();
-            createHearts(); // Memulai efek hati melayang
-        };
+      window.onload = function () {
+        typeWriter();
+        createHearts(); // Memulai efek hati melayang
+      };
 
-        // Modal untuk memperbesar gambar
-        function openModal(src) {
-            document.getElementById("modalImage").src = src;
-            document.getElementById("modal").style.display = "block";
-        }
+      // Modal untuk memperbesar gambar
+      function openModal(src) {
+        document.getElementById('modalImage').src = src;
+        document.getElementById('modal').style.display = 'block';
+      }
 
-        function closeModal() {
-            document.getElementById("modal").style.display = "none";
-        }
+      function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+      }
 
-        // Efek hati melayang
-        function createHearts() {
-            setInterval(() => {
-                let heart = document.createElement("div");
-                heart.innerHTML = "❤️";
-                heart.className = "heart";
-                heart.style.left = Math.random() * 100 + "vw";
-                heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
-                document.body.appendChild(heart);
-                setTimeout(() => heart.remove(), 4000);
-            }, 500);
-        }
+      // Efek hati melayang
+      function createHearts() {
+        setInterval(() => {
+          let heart = document.createElement('div');
+          heart.innerHTML = '❤️';
+          heart.className = 'heart';
+          heart.style.left = Math.random() * 100 + 'vw';
+          heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+          document.body.appendChild(heart);
+          setTimeout(() => heart.remove(), 4000);
+        }, 500);
+      }
     </script>
-</body>
+  </body>
 </html>
